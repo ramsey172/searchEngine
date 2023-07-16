@@ -5,9 +5,6 @@ import com.example.searchengine.exception.RoleNotFoundException;
 import com.example.searchengine.factory.RoleFactory;
 import com.example.searchengine.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +14,7 @@ import java.util.Set;
 
 
 @Service
-public class UserService implements UserDetailsService {
+public class SearchIndexService{
 
     @Autowired
     private UserRepository userRepository;
@@ -49,15 +46,5 @@ public class UserService implements UserDetailsService {
 
     public List<User> findAll() {
         return userRepository.findAll();
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> byUsername = userRepository.findByUsername(username);
-        if (byUsername.isPresent()) {
-            User user = byUsername.get();
-            return user;
-        }
-        throw new UsernameNotFoundException("Username not found!");
     }
 }

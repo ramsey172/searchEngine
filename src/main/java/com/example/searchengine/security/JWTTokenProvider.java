@@ -58,7 +58,7 @@ public class JWTTokenProvider {
 
   public String resolveToken(HttpServletRequest req) {
     String bearerToken = req.getHeader("Authorization");
-    if (bearerToken != null && bearerToken.startsWith("Bearer_")) {
+    if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
       return bearerToken.substring(7);
     }
     return null;
@@ -77,7 +77,7 @@ public class JWTTokenProvider {
 
   private List<String> getUserRoleNamesFromJWT(Set<Role> roles){
     List<String> result = new ArrayList<>();
-    roles.forEach(role -> result.add(role.name()));
+    roles.forEach(role -> result.add(role.getName()));
     return result;
   }
 }

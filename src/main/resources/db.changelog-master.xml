@@ -1,0 +1,11 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <include file="db/changelog/001-create-user-table.xml" relativeToChangelogFile="true" />
+    <include file="db/changelog/002-create-roles-table.xml" relativeToChangelogFile="true" />
+    <include file="db/changelog/003-create-user-role-table.xml" relativeToChangelogFile="true" />
+    <include file="db/changelog/004-create-user-role-foreign-keys-and-constraints.xml" relativeToChangelogFile="true" />
+    <include file="db/changelog/005-create-site-table.xml" relativeToChangelogFile="true" />
+    <include file="db/changelog/006-create-site-page-table.xml" relativeToChangelogFile="true" />
+</databaseChangeLog>
