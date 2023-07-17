@@ -26,9 +26,9 @@ import java.util.stream.Collectors;
 @RequestMapping("/user")
 public class AuthController {
     @Autowired
-    private UserService userService;
+    UserService userService;
     @Autowired
-    private JWTTokenProvider jwtTokenProvider;
+    JWTTokenProvider jwtTokenProvider;
 
     @Autowired SiteCrawlerTask siteCrawlerTask;
     private static final String SAME_NAME_ERROR_MESSAGE = "A user with the same name already exists";
@@ -51,6 +51,7 @@ public class AuthController {
         }
         try {
             if (userService.existsByUsername(user.getUsername())) {
+
                 return ResponseEntity.badRequest().body(new Response(ResponseStatus.ERROR,SAME_NAME_ERROR_MESSAGE));
             }
             userService.save(user);

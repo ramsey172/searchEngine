@@ -9,5 +9,6 @@ import java.util.Set;
 @Repository
 public interface SiteRepository extends JpaRepository<Site, Long> {
     boolean existsByUrl(String url);
+    Set<Site> findByIsScannedTrue();
     Set<Site> findByIsScannedFalse();
 }

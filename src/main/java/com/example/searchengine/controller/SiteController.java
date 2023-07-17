@@ -80,7 +80,7 @@ public class SiteController {
         return ResponseEntity.badRequest().body(new Response(ResponseStatus.ERROR,SITE_NOT_FOUND));
     }
 
-    @GetMapping("/{id}/reindex")
+    @PostMapping("/{id}/reindex")
     public ResponseEntity<Response> reindexById(Authentication authentication, @PathVariable long id){
         User user = (User) authentication.getPrincipal();
         Optional<Site> oSite = siteService.findById(id);

@@ -27,7 +27,7 @@ public class SecurityConfiguration{
                     //.requestMatchers(TEST_ENDPOINT).permitAll()
                     .requestMatchers(HttpMethod.GET,SEARCH_ENDPOINT).permitAll()
                     .requestMatchers(HttpMethod.POST,LOGIN_ENDPOINT).permitAll()
-                    .requestMatchers(HttpMethod.GET,REG_ENDPOINT).permitAll()
+                    .requestMatchers(HttpMethod.POST,REG_ENDPOINT).permitAll()
                     .requestMatchers(SITE_ENDPOINTS).hasAnyAuthority("user")
                     .requestMatchers("/swagger-ui/**",
                             "/swagger-resources/*",

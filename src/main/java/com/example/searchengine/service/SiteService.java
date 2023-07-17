@@ -34,6 +34,9 @@ public class SiteService {
     public Set<Site> findByIsScannedFalse(){
         return siteRepository.findByIsScannedFalse();
     }
+    public Set<Site> findByIsScannedTrue(){
+        return siteRepository.findByIsScannedTrue();
+    }
 
     public Optional<Site> findById(long id){
         return siteRepository.findById(id);

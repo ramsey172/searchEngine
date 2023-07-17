@@ -42,6 +42,8 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();

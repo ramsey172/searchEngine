@@ -7,7 +7,6 @@ import com.example.searchengine.helper.SitemapParser;
 import com.example.searchengine.service.SitePageService;
 import com.example.searchengine.service.SiteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +21,6 @@ import java.util.Set;
 
 @Component
 public class SiteCrawlerTask implements Task {
-    @Value("${sitecrawler.cron.expression}")
-    private String cronExpression;
     @Autowired
     SiteService siteService;
     @Autowired
@@ -33,7 +30,7 @@ public class SiteCrawlerTask implements Task {
     @Autowired
     HtmlParser htmlParser;
     @Autowired
-    private RestTemplateBuilder restTemplateBuilder;
+    RestTemplateBuilder restTemplateBuilder;
 
     private static final String SITEMAP_PATH = "/sitemap.xml";
 
